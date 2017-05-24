@@ -8,19 +8,11 @@
 
 import UIKit
 
-//protocol Operatable {
-//    mutating func unary(value: inout Int) -> Int
-//}
-
 protocol IncrementDecrementOperationProtocol: class {
     var amount: Int { get set }
 }
 
 @IBDesignable class IncrementDecrementButton: UIView {
-    
-    // two buttons, one to increase count, the other to decrease count
-    // one label in center
-    // apply protocol
     
     weak var delegate: IncrementDecrementOperationProtocol?
     
@@ -85,27 +77,25 @@ protocol IncrementDecrementOperationProtocol: class {
     func setupViews() {
         let viewsDictionary: [String: AnyObject] = ["upButton": upButton, "countLabel": countLabel, "downButton": downButton]
         
-        var frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-        
-        upButton.frame = frame
         upButton.backgroundColor = buttonBackgroundColor
         upButton.translatesAutoresizingMaskIntoConstraints = false
+        upButton.setTitle("+", for: .normal)
         upButton.addTarget(self, action: #selector(increment), for: .touchUpInside)
         self.addSubview(upButton)
 
-        frame.origin.x = 44
-        countLabel.frame = frame
+
         countLabel.translatesAutoresizingMaskIntoConstraints = false
+        countLabel.text = "0"
+        countLabel.textAlignment = .center
         self.addSubview(countLabel)
         
-        frame.origin.x = 88
-        downButton.frame = frame
         downButton.backgroundColor = buttonBackgroundColor
         downButton.translatesAutoresizingMaskIntoConstraints = false
+        downButton.setTitle("-", for: .normal)
         downButton.addTarget(self, action: #selector(decrement), for: .touchUpInside)
         self.addSubview(downButton)
         
-        let horizontal_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[downButton(==upButton)]-1-[countLabel]-1-[upButton(==downButton)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
+        let horizontal_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[downButton(==upButton)]-1-[countLabel]-1-[upButton(>=44,<=50)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
         let vertical_Up_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[upButton]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
         let vertical_Count_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[countLabel]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
         let vertical_Down_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[downButton]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)

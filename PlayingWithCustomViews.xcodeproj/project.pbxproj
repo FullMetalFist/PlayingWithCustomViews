@@ -12,7 +12,6 @@
 		7C41B6AA1ED4859300288A26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C41B6A81ED4859300288A26 /* Main.storyboard */; };
 		7C41B6AC1ED4859300288A26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C41B6AB1ED4859300288A26 /* Assets.xcassets */; };
 		7C41B6AF1ED4859300288A26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C41B6AD1ED4859300288A26 /* LaunchScreen.storyboard */; };
-		7C41B6B71ED485B700288A26 /* UpDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41B6B61ED485B700288A26 /* UpDownButton.swift */; };
 		7C41B6B91ED4AB7900288A26 /* IncrementDecrementButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41B6B81ED4AB7900288A26 /* IncrementDecrementButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +23,6 @@
 		7C41B6AB1ED4859300288A26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C41B6AE1ED4859300288A26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C41B6B01ED4859300288A26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C41B6B61ED485B700288A26 /* UpDownButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpDownButton.swift; sourceTree = "<group>"; };
 		7C41B6B81ED4AB7900288A26 /* IncrementDecrementButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementDecrementButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +59,6 @@
 				7C41B6A41ED4859300288A26 /* AppDelegate.swift */,
 				7C41B6A61ED4859300288A26 /* ViewController.swift */,
 				7C41B6B81ED4AB7900288A26 /* IncrementDecrementButton.swift */,
-				7C41B6B61ED485B700288A26 /* UpDownButton.swift */,
 				7C41B6A81ED4859300288A26 /* Main.storyboard */,
 				7C41B6AB1ED4859300288A26 /* Assets.xcassets */,
 				7C41B6AD1ED4859300288A26 /* LaunchScreen.storyboard */,
@@ -146,7 +143,6 @@
 				7C41B6A71ED4859300288A26 /* ViewController.swift in Sources */,
 				7C41B6B91ED4AB7900288A26 /* IncrementDecrementButton.swift in Sources */,
 				7C41B6A51ED4859300288A26 /* AppDelegate.swift in Sources */,
-				7C41B6B71ED485B700288A26 /* UpDownButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
