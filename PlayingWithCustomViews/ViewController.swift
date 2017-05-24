@@ -8,11 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, IncrementDecrementOperationProtocol {
+    
+    var amount: Int = 0 {
+        didSet {
+            print(amount)
+        }
+    }
+    
+    @IBOutlet weak var incDecButton: IncrementDecrementButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        incDecButton.delegate = self
     }
 
     override func didReceiveMemoryWarning() {

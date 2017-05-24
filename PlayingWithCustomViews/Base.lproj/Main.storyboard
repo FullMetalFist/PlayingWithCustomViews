@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +21,38 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEr-EU-VS9" customClass="IncrementDecrementButton" customModule="PlayingWithCustomViews" customModuleProvider="target">
+                                <rect key="frame" x="48" y="153" width="199" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="rect" keyPath="upButtonFrame">
+                                        <rect key="value" x="0.0" y="0.0" width="44" height="44"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="rect" keyPath="countLabelFrame">
+                                        <rect key="value" x="0.0" y="0.0" width="44" height="44"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="rect" keyPath="downButtonFrame">
+                                        <rect key="value" x="0.0" y="0.0" width="44" height="44"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VEr-EU-VS9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="32" id="0PO-Oz-kYM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VEr-EU-VS9" secondAttribute="trailing" constant="112" id="jfK-yX-KGo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VEr-EU-VS9" secondAttribute="bottom" constant="444" id="r5k-EV-iPn"/>
+                            <constraint firstItem="VEr-EU-VS9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="133" id="w1t-dA-rO1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="incDecButton" destination="VEr-EU-VS9" id="KJ9-uW-Lom"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
     </scenes>
 </document>

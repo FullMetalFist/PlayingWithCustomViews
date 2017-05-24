@@ -34,10 +34,7 @@ protocol IncrementDecrementOperationProtocol: class {
         }
     }
     
-    @IBInspectable var upButtonFrame: CGRect = CGRect.zero
-    @IBInspectable var countLabelFrame: CGRect = CGRect.zero
-    @IBInspectable var downButtonFrame: CGRect = CGRect.zero
-    
+    @IBInspectable var buttonBackgroundColor = UIColor.gray
     
     override init(frame: CGRect) {
         upButton = UIButton()
@@ -48,6 +45,7 @@ protocol IncrementDecrementOperationProtocol: class {
         
         self.backgroundColor = UIColor.darkGray
         countLabel.textColor = UIColor.blue
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,27 +54,13 @@ protocol IncrementDecrementOperationProtocol: class {
         downButton = UIButton()
         
         super.init(coder: aDecoder)
+        
+        setupViews()
     }
     
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
     }
-    
-//    struct Increment: Operatable {
-//        mutating func unary(value: inout Int) -> Int {
-//            return value + 1
-//        }
-//    }
-//    
-//    struct Decrement: Operatable {
-//        mutating func unary(value: inout Int) -> Int {
-//            if value == 0 {
-//                return 0
-//            } else {
-//                return value - 1
-//            }
-//        }
-//    }
     
     func increment() -> Int {
         
@@ -100,22 +84,31 @@ protocol IncrementDecrementOperationProtocol: class {
     
     func setupViews() {
         let viewsDictionary: [String: AnyObject] = ["upButton": upButton, "countLabel": countLabel, "downButton": downButton]
-
+        
+        var frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        
+        upButton.frame = frame
+        upButton.backgroundColor = buttonBackgroundColor
         upButton.translatesAutoresizingMaskIntoConstraints = false
         upButton.addTarget(self, action: #selector(increment), for: .touchUpInside)
         self.addSubview(upButton)
 
+        frame.origin.x = 44
+        countLabel.frame = frame
         countLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(countLabel)
-
+        
+        frame.origin.x = 88
+        downButton.frame = frame
+        downButton.backgroundColor = buttonBackgroundColor
         downButton.translatesAutoresizingMaskIntoConstraints = false
         downButton.addTarget(self, action: #selector(decrement), for: .touchUpInside)
         self.addSubview(downButton)
         
-        let horizontal_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[upButton]-1-[numberLabel]-1-[downButton]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
+        let horizontal_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[downButton(==upButton)]-1-[countLabel]-1-[upButton(==downButton)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
         let vertical_Up_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[upButton]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        let vertical_Count_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[numberLabel]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        let vertical_Down_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[downButton]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
+        let vertical_Count_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[countLabel]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
+        let vertical_Down_Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[downButton]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
         
         self.addConstraints(horizontal_Constraint)
         self.addConstraints(vertical_Up_Constraint)
